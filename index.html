@@ -17,11 +17,11 @@
         <div class="inputs">
             <input type="text" id="title" placeholder="Title">
             <div class="prices">
-                <input type="number" id="price" placeholder="Price">
-                <input type="number" id="taxes" placeholder="Taxes">
-                <input type="number" id="ads" placeholder="Ads">
-                <input type="number" id="discount" placeholder="Discount">
-                <small id="total-price">12345</small>
+                <input onkeyup="getTotalPrice()" type="number" id="price" placeholder="Price">
+                <input onkeyup="getTotalPrice()" type="number" id="taxes" placeholder="Taxes">
+                <input onkeyup="getTotalPrice()" type="number" id="ads" placeholder="Ads">
+                <input onkeyup="getTotalPrice()" type="number" id="discount" placeholder="Discount">
+                <small id="total-price"></small>
             </div>
             <input type="number" id="amount" placeholder="Amount">
             <input type="text" id="category" placeholder="Category">
@@ -30,12 +30,14 @@
 
         <div class="outputs">
             <div class="search">
-                <input type="text" id="search" placeholder="Search">
+                <input onkeyup="searchForProducts(this.value)" type="text" id="search" placeholder="Search">
                 <div class="search-btns">
-                    <button id="searchTitle">Search By Title</button>
-                    <button id="searchCategory">Search By Category</button>
+                    <button onclick="getSearchMood(this.id)" id="searchTitle">Search By Title</button>
+                    <button onclick="getSearchMood(this.id)" id="searchCategory">Search By Category</button>
                 </div>
             </div>
+
+            <div id="deleteAll"></div>
 
             <table>
                 <thead>
@@ -51,23 +53,11 @@
                     <th>Delete</th>
                 </thead>
                 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Iphone 12</td>
-                        <td>20000</td>
-                        <td>100</td>
-                        <td>20</td>
-                        <td>20</td>
-                        <td>100</td>
-                        <td>Phone</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="tBody"></tbody>             
             </table>
         </div>
     </div>
     
+    <script src="main.js"></script>
 </body>
 </html>
